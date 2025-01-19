@@ -3,5 +3,5 @@ project(LeetCode)
 
 
 add_executable(LeetCode src/main.cpp)
-add_subdirectory(inc)
-target_link_libraries(LeetCode PUBLIC inc)
+add_subdirectory(include)
+target_link_libraries(LeetCode PUBLIC include)
