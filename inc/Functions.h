@@ -1,6 +1,8 @@
 #pragma once
+#include <vector>
 
-class CodeFunctions {
+class Solutions {
 public:
     void test();
+    std::vector<int> plusOne(std::vector<int>& digits); 
 };
