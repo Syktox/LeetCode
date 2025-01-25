@@ -27,13 +27,8 @@ int Solutions::reverse(int x) {
     }
 
     bool wasNeg = false;
-    bool wasMax = false;
     int sum = 0;
 
-    if (x == pow(-2,31)) {
-        x = x + 1;
-        wasMax = true;
-    }
     if (x < 0) {
         x = x * (-1);
         wasNeg = true;
