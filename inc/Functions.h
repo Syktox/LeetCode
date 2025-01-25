@@ -3,6 +3,6 @@
 
 class Solutions {
 public:
-    void test();
     std::vector<int> plusOne(std::vector<int>& digits); 
+    int reverse(int x);
 };
