@@ -22,33 +22,35 @@ std::vector<int> Solutions::plusOne(std::vector<int>& digits) {
 }
 
 int Solutions::reverse(int x) {
-    if (x < pow(-2,31) || x > pow(2, 31) - 1) {
+    if (x <= pow(-2,31) || x > pow(2, 31) - 1) {
         return 0;
     }
 
     bool wasNeg = false;
+    bool wasMax = false;
     int sum = 0;
 
+    if (x == pow(-2,31)) {
+        x = x + 1;
+        wasMax = true;
+    }
     if (x < 0) {
         x = x * (-1);
         wasNeg = true;
     }
-
+    
     while (x > 0) {
-        if (((x % 10) * pow(10, std::to_string(x).length() - 1)) > pow(2,31) - 1) {
+        if ((sum + (x % 10) * pow(10, std::to_string(x).length() - 1)) > pow(2,31) - 1) {
             return 0;
         }
+        std::cout << "X: " << x << " Sum: " << sum << std::endl;
         sum += (x % 10) * pow(10, std::to_string(x).length() - 1);
         x = x / 10;
     }
 
-    if (sum > pow(2, 31)) {
-        return 0;
-    }
-    
     if (wasNeg) {
         return sum * (-1);
     }
-            
+
     return sum;
 }

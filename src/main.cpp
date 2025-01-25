@@ -6,7 +6,7 @@ using namespace std;
 
 int main() {
     Solutions s = Solutions();
-    int value = s.reverse(-2147483648);
-    cout << value << " Correct: 1534236469" << endl;
+    int value = s.reverse(1563847412);
+    cout << value << " Correct: 1563847412" << endl;
     return 0;
 }
