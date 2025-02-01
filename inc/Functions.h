@@ -8,4 +8,6 @@ public:
     int reverse(int x);
     int lengthOfLongestSubstring(std::string s);
     std::vector<int> twoSum(std::vector<int>& nums, int target);
+    int maxArea(std::vector<int>& height);
+    std::vector<std::vector<int>> threeSum(std::vector<int>& nums);
 };

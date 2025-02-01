@@ -6,12 +6,16 @@ using namespace std;
 
 int main() {
     Solutions s = Solutions();
-    vector<int> v = {1,2,1,23,4,3,2,1};
-    vector<int> value = s.twoSum(v, 3);
+    vector<int> v = {1,8,6,2,5,4,8,3,7};
+    vector<vector<int>> erg = s.threeSum(v);
     
-    for(int i = 0; i < value.size(); i++) {
-        cout << value.at(i) << "\n";
+    for(auto it : erg) {
+        cout << "Vector : \n";
+        for (int x : it) {
+            cout << x << "\n";
+        }
+        cout << "\n";
     }
-    
+
     return 0;
 }

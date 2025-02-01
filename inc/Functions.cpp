@@ -77,11 +77,11 @@ int Solutions::lengthOfLongestSubstring(std::string s) {
     return max;
 }
 
-std::vector<int> Solutions::twoSum(std::vector<int>& nums, int target) {
+std::vector<int> Solutions::twoSum(std::vector<int>& nums, int target) { // very slow
     std::vector<int> indices;
 
-    for (int i = 0; i < nums.size(); i++) {
-        for (int j = 0; j < nums.size(); j++) {
+    for (int i = 0; i <= nums.size(); i++) {
+        for (int j = i + 1; j <= nums.size(); j++) {
             if (nums.at(i) + nums.at(j) == target) {
                 indices.emplace_back(i);
                 indices.emplace_back(j);
@@ -91,4 +91,36 @@ std::vector<int> Solutions::twoSum(std::vector<int>& nums, int target) {
     }
     
     return indices;
+}
+
+int Solutions::maxArea(std::vector<int>& height) {
+    int maxSum = 0;
+    int area = 0;
+    int i = height.size() - 1;
+
+    int* left = &height[0];
+    int* right = &height[height.size() - 1];
+
+    while (left != right) {
+        if (*left < *right) {
+            area = std::min(*left, *right) * (right - left);
+            left++;
+        } else {
+            area = std::min(*left, *right) * (right - left);
+            right--;
+        }
+        if (area > maxSum) {
+            maxSum = area;
+        }
+
+        i--;
+    }
+
+    return maxSum;
+}
+
+std::vector<std::vector<int>> Solutions::threeSum(std::vector<int>& nums) {
+        
+
+    return test;
 }
