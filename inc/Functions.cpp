@@ -4,6 +4,7 @@
 #include <cmath>
 #include <string>
 #include <set>
+#include <map>
 
 std::vector<int> Solutions::plusOne(std::vector<int>& digits) {
     bool carryover = false;
@@ -77,20 +78,18 @@ int Solutions::lengthOfLongestSubstring(std::string s) {
     return max;
 }
 
-std::vector<int> Solutions::twoSum(std::vector<int>& nums, int target) { // very slow
-    std::vector<int> indices;
+std::vector<int> Solutions::twoSum(std::vector<int>& nums, int target) {
+    std::map<int, int> storage;
 
-    for (int i = 0; i <= nums.size(); i++) {
-        for (int j = i + 1; j <= nums.size(); j++) {
-            if (nums.at(i) + nums.at(j) == target) {
-                indices.emplace_back(i);
-                indices.emplace_back(j);
-                return indices;
-            }
+    for (int i = 0; i < nums.size(); i++) {
+        int diff = target - nums.at(i);
+        if (storage.find(diff) != storage.end()) {
+            return {i, storage.at(diff)};
         }
+        storage.insert(storage.begin(), std::pair<int, int>(diff, i));
     }
-    
-    return indices;
+
+    return {};
 }
 
 int Solutions::maxArea(std::vector<int>& height) {
@@ -120,7 +119,9 @@ int Solutions::maxArea(std::vector<int>& height) {
 }
 
 std::vector<std::vector<int>> Solutions::threeSum(std::vector<int>& nums) {
-        
+    std::vector<std::vector<int>> threeSum;
+    std::vector<int> z_sum;
 
-    return test;
+
+    return threeSum;
 }

@@ -6,7 +6,7 @@ using namespace std;
 
 int main() {
     Solutions s = Solutions();
-    vector<int> v = {1,8,6,2,5,4,8,3,7};
+    vector<int> v = {-1,0,1,2,-1,-4};
     vector<vector<int>> erg = s.threeSum(v);
     
     for(auto it : erg) {
