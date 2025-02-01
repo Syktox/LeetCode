@@ -2,6 +2,8 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <string>
+#include <set>
 
 std::vector<int> Solutions::plusOne(std::vector<int>& digits) {
     bool carryover = false;
@@ -48,4 +50,45 @@ int Solutions::reverse(int x) {
     }
 
     return sum;
+}
+
+int Solutions::lengthOfLongestSubstring(std::string s) {
+    if (s.empty()) {
+        return 0;
+    }
+
+    std::set<char> set;
+    int start = 0;
+    int end = 0;
+    int max = 0;
+    int count = 0;
+
+    while (end < s.size()) {
+        if (set.count(s[end]) == 0) {
+            set.insert(s[end]);
+            max = std::max(max, end - start + 1);
+            end++;
+        } else {
+            set.erase(s[start]);
+            start++;
+        }
+    }
+
+    return max;
+}
+
+std::vector<int> Solutions::twoSum(std::vector<int>& nums, int target) {
+    std::vector<int> indices;
+
+    for (int i = 0; i < nums.size(); i++) {
+        for (int j = 0; j < nums.size(); j++) {
+            if (nums.at(i) + nums.at(j) == target) {
+                indices.emplace_back(i);
+                indices.emplace_back(j);
+                return indices;
+            }
+        }
+    }
+    
+    return indices;
 }
